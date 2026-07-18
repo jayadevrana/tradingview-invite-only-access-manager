@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TV Access Helper</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <header class="hero">
+        <p class="eyebrow">TradingView</p>
+        <h1>Access Helper</h1>
+        <p class="subtle">
+          Open your TradingView script access window, then run the action below.
+        </p>
+      </header>
+
+      <form id="grant-form" class="card">
+        <label class="field">
+          <span>TradingView ID / username</span>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            autocomplete="off"
+            placeholder="example_user"
+            required
+          />
+        </label>
+
+        <label class="field">
+          <span>Access duration</span>
+          <select id="durationPreset" name="durationPreset">
+            <option value="2d">2 days</option>
+            <option value="30d">30 days</option>
+            <option value="1y">1 year</option>
+            <option value="none">No expiration</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Script title (optional)</span>
+          <input
+            id="scriptTitle"
+            name="scriptTitle"
+            type="text"
+            autocomplete="off"
+            placeholder="My Invite-Only Indicator"
+          />
+        </label>
+
+        <p id="duration-note" class="note">
+          The extension will use TradingView's built-in expiration field for the selected duration.
+        </p>
+
+        <div class="actions">
+          <button id="grant-button" type="submit" class="primary">
+            Grant Access
+          </button>
+          <button id="revoke-button" type="button" class="secondary">
+            Revoke Access
+          </button>
+        </div>
+      </form>
+
+      <section class="card tips">
+        <h2>Best result</h2>
+        <p>
+          Keep the correct TradingView tab open on your script's access page or on the script card that has
+          <strong>Manage access</strong>.
+        </p>
+      </section>
+
+      <section class="card status-card">
+        <h2>Status</h2>
+        <p id="status" class="status idle">Ready.</p>
+        <pre id="log" class="log" hidden></pre>
+      </section>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+  </html>

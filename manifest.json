@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "TradingView Access Helper",
+  "description": "Grant or revoke temporary access for your own invite-only TradingView script from the access management page.",
+  "version": "0.1.0",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.tradingview.com/*"
+  ],
+  "action": {
+    "default_title": "TV Access Helper",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.tradingview.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
